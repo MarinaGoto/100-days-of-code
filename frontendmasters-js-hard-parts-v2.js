@@ -66,14 +66,30 @@ function mapWith(array, callback) {
 // console.log(mapWith([1, 2, 3, 9], multiplyByTwo))
 
 // Challenge 6
-function reduce(array, callback, initialValue) {
+// Create a function called reduce that takes an array and reduces the elements to a single value. For example it can sum all the numbers, multiply them, or any operation that you can put into a function.
 
+function reduce(array, callback, initialValue) {
+  let accumulator = initialValue;
+  for (let i = 0; i < array.length; i ++){
+    accumulator = callback(accumulator, array[i]);
+  }
+  return accumulator;
 }
+
+let add = (ac, el) => ac + el;
+
+// console.log(reduce(['1', '2', '3', '4'], add, 0));
 
 
 // Challenge 7
-function intersection(arrays) {
+// Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. BONUS: Use reduce!
 
+function intersection(firstAr, ...arrays) {
+    return reduce(arrays, (curr, next) => {
+        const output = []
+        forEach(next, el => curr.includes(el) && output.push(el))
+        return output
+    }, firstAr)
 }
 
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
