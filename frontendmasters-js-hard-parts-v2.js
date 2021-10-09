@@ -97,11 +97,20 @@ function intersection(firstAr, ...arrays) {
 
 
 // Challenge 8
-function union(arrays) {
+// Construct a function union that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array. BONUS: Use reduce!
 
+function union(firstAr, ...arrays) {
+  return reduce(arrays, (curr, next) => {
+
+    const ourArray = firstAr;
+    forEach(next, (el) => {
+      !curr.includes(el) && ourArray.push(el)
+    })
+    return ourArray;
+  }, firstAr)
 }
 
-// console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+// console.log('Result:', union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
