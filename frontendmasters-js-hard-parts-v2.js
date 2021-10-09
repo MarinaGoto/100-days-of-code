@@ -78,7 +78,7 @@ function reduce(array, callback, initialValue) {
 
 let add = (ac, el) => ac + el;
 
-// console.log(reduce(['1', '2', '3', '4'], add, 0));
+// console.log(reduce([4, 1, 3], add, 0));
 
 
 // Challenge 7
